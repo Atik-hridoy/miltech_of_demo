@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sign_in_screen.dart';
 
 // AuthScreen is the main authentication screen with background and social login buttons
 class AuthScreen extends StatelessWidget {
@@ -57,11 +58,22 @@ class AuthScreen extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Google icon
-                        Image.asset('assets/icons/Social icon.png', height: 32, width: 32),
-                        const SizedBox(width: 16), // Space between icon and text
+                        // Icon in a box at the left edge
+                        Container(
+                          width: 48,
+                          height: 48,
+                          margin: const EdgeInsets.only(left: 3, right: 16),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            // Removed border
+                          ),
+                          child: Center(
+                            child: Image.asset('assets/icons/Social icon.png', 
+                            height: 28, width: 28),
+                          ),
+                        ),
                         const Text(
                           'Continue with Google',
                           style: TextStyle(
@@ -93,11 +105,21 @@ class AuthScreen extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Facebook icon
-                        Image.asset('assets/icons/Social icon (1).png', height: 32, width: 32),
-                        const SizedBox(width: 16),
+                        // Icon in a box at the left edge
+                        Container(
+                          width: 48,
+                          height: 48,
+                          margin: const EdgeInsets.only(left: 3, right: 16),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            // Removed border
+                          ),
+                          child: Center(
+                            child: Image.asset('assets/icons/Social icon (1).png', height: 28, width: 28),
+                          ),
+                        ),
                         const Text(
                           'Continue with Facebook',
                           style: TextStyle(
@@ -129,11 +151,21 @@ class AuthScreen extends StatelessWidget {
                       padding: EdgeInsets.zero,
                     ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Apple icon
-                        Image.asset('assets/icons/Social icon (2).png', height: 32, width: 32),
-                        const SizedBox(width: 16),
+                        // Icon in a box at the left edge
+                        Container(
+                          width: 48,
+                          height: 48,
+                          margin: const EdgeInsets.only(left: 3, right: 16),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                            // Removed border
+                          ),
+                          child: Center(
+                            child: Image.asset('assets/icons/Social icon (2).png', height: 28, width: 28),
+                          ),
+                        ),
                         const Text(
                           'Continue with Apple',
                           style: TextStyle(
@@ -154,7 +186,12 @@ class AuthScreen extends StatelessWidget {
                   height: 54,
                   child: ElevatedButton(
                     onPressed: () {
-                      // TODO: Implement Sign In
+                      // Navigate to SignInScreen when pressed
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const SignInScreen(),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -194,7 +231,7 @@ class AuthScreen extends StatelessWidget {
                     child: const Text(
                       'Sign Up',
                       style: TextStyle(
-                        color: Colors.blueAccent,
+                        color: Color.fromARGB(255, 68, 138, 255),
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
@@ -252,6 +289,19 @@ class AuthScreen extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+          // Add a back button (chevron_left) at the top left
+          Positioned(
+            top: 40, // Adjust as needed for your design
+            left: 16,
+            child: IconButton(
+              icon: const Icon(Icons.chevron_left, size: 32, color: Color.fromARGB(255, 252, 250, 250)),
+              onPressed: () {
+                // TODO: Implement back navigation
+                Navigator.of(context).maybePop();
+              },
+              tooltip: 'Back',
             ),
           ),
         ],
