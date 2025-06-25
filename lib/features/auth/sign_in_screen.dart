@@ -55,40 +55,55 @@ class SignInScreen extends StatelessWidget {
             ),
           ),
           // Main sign-in form content
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
+          Positioned(
+            top: 377,
+            left: 16,
+            child: SizedBox(
+              width: 358,
+              height: 166,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // Email field
                   TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: 'Email Or Phone Number',
+                      labelStyle: const TextStyle(color: Colors.black54),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide(color: Colors.black12),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
                     ),
-                    keyboardType: TextInputType.emailAddress,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 20),
                   // Password field
                   TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Password',
-                      border: OutlineInputBorder(),
-                    ),
                     obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: const TextStyle(color: Colors.black54),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide(color: Colors.black12),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+                      suffixIcon: Icon(Icons.visibility_off, color: Colors.black38),
+                    ),
                   ),
-                  const SizedBox(height: 24),
-                  // Sign In button
-                  SizedBox(
-                    width: double.infinity,
-                    height: 48,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // TODO: Implement sign in logic
-                      },
-                      child: const Text('Sign In'),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                      child: const Text(
+                        'Forgot Password',
+                        style: TextStyle(
+                          color: Color(0xFFF43F5E),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
                   ),
                 ],
